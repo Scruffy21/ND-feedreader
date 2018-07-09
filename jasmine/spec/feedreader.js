@@ -58,6 +58,9 @@ $(function() {
     describe("The menu", function () {
         const body = document.querySelector("body");
         const menuIcon = $('.menu-icon-link');
+        if (body == undefined || menuIcon == undefined) {
+            throw "elements not found on the page";
+        }
     
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
@@ -106,6 +109,9 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
         let contentBefore = document.querySelector(".feed").textContent;
+        if (contentBefore == undefined) {
+            throw ".feed is undefined";
+        }
 
         beforeEach((done) => {
             loadFeed(1, done);
